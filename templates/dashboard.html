@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MyHacking Station</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #00ffcc;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: #222;
+        }
+        th, td {
+            border: 1px solid #00ffcc;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>💻 MyHacking Station 💀</h1>
+    <table>
+        <tr>
+            <th>ID Transacción</th>
+            <th>Titular</th>
+            <th>PAN</th>
+            <th>Monto</th>
+            <th>Marca</th>
+            <th>Dirección</th>
+            <th>Ciudad</th>
+            <th>Depto</th>
+            <th>Código Postal</th>
+            <th>Fecha</th>
+        </tr>
+        {% for t in transacciones %}
+        <tr>
+            <td>{{ t.transaction_id }}</td>
+            <td>{{ t.titular }}</td>
+            <td>{{ t.pan }}</td>
+            <td>${{ t.monto }}</td>
+            <td>{{ t.marca_tarjeta }}</td>
+            <td>{{ t.direccion }}</td>
+            <td>{{ t.ciudad }}</td>
+            <td>{{ t.departamento }}</td>
+            <td>{{ t.codigo_postal }}</td>
+            <td>{{ t.fecha.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
